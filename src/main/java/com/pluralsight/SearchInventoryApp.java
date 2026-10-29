@@ -1,9 +1,8 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class SearchInventoryApp {
@@ -18,13 +17,13 @@ public class SearchInventoryApp {
         getInventory(inventory,"inventory.csv");
 
         // Run the inventory search application
-        runApp(scanner);
+        runApp(inventory,scanner);
 
         // Close the scanner
         scanner.close();
     }
 
-    public static void runApp(Scanner scanner) {
+    public static void runApp(ArrayList<Product> inventory,Scanner scanner) {
         boolean appRunning = true;
         while (appRunning) {
             // Open the menu
@@ -33,12 +32,13 @@ public class SearchInventoryApp {
 
             if (response.equalsIgnoreCase("a")) {
                 // Read all the items in the inventory
-
+                listInventory(inventory);
             } else if (response.equalsIgnoreCase("b")) {
                 // Add to the inventory
-
+                addToInventory(inventory,scanner);
             } else if (response.equalsIgnoreCase("c")) {
                 // Exit the app
+                System.out.println("-> Exiting the app...");
                 appRunning = false;
             } else {
                 // Error, invalid input
@@ -47,8 +47,51 @@ public class SearchInventoryApp {
         }
     }
 
-    public static void addToInventory(ArrayList<Product> inventory) {
+    public static void listInventory(ArrayList<Product> inventory) {
+        System.out.println("\n[INVENTORY PRODUCT INFORMATION]");
+        // Sort the products in inventory by name
+        inventory.sort(Comparator.comparing(Product::getName, String.CASE_INSENSITIVE_ORDER));
+        // Display the items in the inventory
+        for (Product product : inventory) {
+            System.out.printf(
+                    "id: %d, name: %s, price: $%.2f\n",
+                    product.getId(),product.getName(),product.getPrice()
+            );
+        }
+        System.out.println();
+    }
 
+    public static void addToInventory(ArrayList<Product> inventory,Scanner scanner) {
+        // Prompt the user for the info needed to create a Product
+        System.out.println("\n[ADD ITEM TO INVENTORY]");
+
+        System.out.println("-> Enter item id (ex. 4221:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("-> Enter item name:");
+        String name = scanner.nextLine();
+
+        System.out.println("-> Enter item price:");
+        double price = scanner.nextDouble();
+        scanner.nextLine();
+
+        // Create the product & add to inventory
+        Product product = new Product(id,name,price);
+        inventory.add(product);
+
+        // Append product information to the .csv file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv",true))) {
+            String line = String.valueOf(id) + "|" + name + "|" + String.valueOf(price);
+            writer.newLine();
+            writer.write(line);
+            writer.newLine();
+        } catch (IOException e) {
+            // Error reading the file
+            System.out.println("Error: Issue reading the file");
+        }
+
+        System.out.println("\n-> Created new product! (" + name + ")\n");
     }
 
     public static void openMenu() {
@@ -80,8 +123,5 @@ public class SearchInventoryApp {
             // Error reading the file
             System.out.println("Error: file could not be read");
         }
-
-
-        return inventory;
     }
 }

@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="087c3bb6-8165-489e-a0a2-bbafb2dd662b" name="Changes" comment="" />
+    <list default="true" id="087c3bb6-8165-489e-a0a2-bbafb2dd662b" name="Changes" comment="Started a new method named addToInventory(); and want it to prompt the user to create a new item inside the inventory and append to the .csv file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory.csv" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/SearchInventoryApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/SearchInventoryApp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,6 +46,34 @@
       <option name="presentableId" value="Default" />
       <updated>1793299762193</updated>
     </task>
+    <task id="LOCAL-00001" summary="Started project">
+      <created>1793300042199</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1793300042199</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Started the structure of the project. Created the menu and app loop. Made the inventory.csv. Make the Product.java class to create product objects to store inside of the inventory ArrayList">
+      <created>1793301759394</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1793301759394</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Started a new method named addToInventory(); and want it to prompt the user to create a new item inside the inventory and append to the .csv file">
+      <created>1793301972838</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1793301972838</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Started project" />
+    <MESSAGE value="Started the structure of the project. Created the menu and app loop. Made the inventory.csv. Make the Product.java class to create product objects to store inside of the inventory ArrayList" />
+    <MESSAGE value="Started a new method named addToInventory(); and want it to prompt the user to create a new item inside the inventory and append to the .csv file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started a new method named addToInventory(); and want it to prompt the user to create a new item inside the inventory and append to the .csv file" />
   </component>
 </project>
