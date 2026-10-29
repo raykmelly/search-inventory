@@ -8,10 +8,12 @@ import java.util.Scanner;
 
 public class SearchInventoryApp {
     public static void main(String[] args) {
+        // Create a scanner
         Scanner scanner = new Scanner(System.in);
 
         // Inventory ArrayList of every item inside inventory
         ArrayList<Product> inventory = new ArrayList<Product>();
+
         // Collect all existing items inside of inventory.csv
         getInventory(inventory,"inventory.csv");
 
@@ -45,6 +47,10 @@ public class SearchInventoryApp {
         }
     }
 
+    public static void addToInventory(ArrayList<Product> inventory) {
+
+    }
+
     public static void openMenu() {
         System.out.println("[INVENTORY MENU]");
         System.out.println("-> Choose a option from the list");
@@ -53,7 +59,7 @@ public class SearchInventoryApp {
         System.out.println("C.) Exit");
     }
 
-    public static ArrayList<Product> getInventory(ArrayList<Product> inventory, String fileName) {
+    public static void getInventory(ArrayList<Product> inventory, String fileName) {
         // Read through the csv file and add to inventory
         String line;
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -62,6 +68,7 @@ public class SearchInventoryApp {
                 // Split the .csv file line (id|name|price)
                 String[] split = line.split("\\|");
 
+                // Create the product, add to inventory ArrayList
                 int id = Integer.parseInt(split[0]);
                 String name = split[1];
                 double price = Double.parseDouble(split[2]);
